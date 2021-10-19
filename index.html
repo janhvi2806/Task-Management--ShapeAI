@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <title>Task Management</title>
+  </head>
+  <body style="background-color: #ebf3ff" onload="loadExistingCards()">
+    <!-- Add New Task Modal -->
+    <div
+      class="modal fade"
+      id="mymodal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="imageURL" class="form-label">Image URL</label>
+              <input
+                type="url"
+                class="form-control"
+                id="imageURL"
+                aria-describedby="image URL"
+                placeholder="https://image.com/image.jpg"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="taskTitle" class="form-label">Task Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="taskTitle"
+                aria-describedby="Task Title"
+                placeholder="Web Development"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="taskType" class="form-label">Task Type</label>
+              <input
+                type="text"
+                class="form-control"
+                id="taskType"
+                aria-describedby="Task Type"
+                placeholder="Development"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="taskDescription" class="form-label"
+                >Task Description</label
+              >
+              <textarea
+                class="form-control"
+                name="Task Description"
+                id="taskDescription"
+                rows="3"
+                placeholder="This is DOM Manupilation class"
+              ></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+              id="sav-changes"
+            >
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Add New Task Modal -->
+
+    <!-- Open Task Modal -->
+    <div class="modal fade" id="showTask" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body task-modal-body"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Open Task Modal -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light shadow sticky-top"
+    >
+      <div class="container-fluid">
+        <a href="#" class="navbar-brand text-primary fs-3 fw-bold">Task</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-target="#navbarcollapse"
+          data-bs-toggle="collapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarcollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a href="#" class="nav-link active">Home</a>
+            </li>
+          </ul>
+          <button
+            class="btn btn-primary"
+            type="submit"
+            data-bs-toggle="modal"
+            data-bs-target="#mymodal"
+          >
+            <i class="far fa-plus"></i> Add New
+          </button>
+        </div>
+      </div>
+    </nav>
+    <main class="container">
+      <section class="row justify-content-center mt-3">
+        <div class="col-md-8 col-lg-6">
+          <div class="input-group mb-3 shadow">
+            <input
+              type="search"
+              id="searchBar"
+              class="form-control"
+              placeholder="Search Your Task"
+              aria-label="Search Your Task"
+              aria-describedby="basic-addon1"
+            />
+            <span class="input-group-text" id="basic-addon1">
+              <i class="far fa-search"></i>
+            </span>
+          </div>
+        </div>
+      </section>
+      <section class="task-container row"></section>
+    </main>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
